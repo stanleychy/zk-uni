@@ -1,5 +1,9 @@
 # ZKU.ONE Week1 Assignment
 
+    Email - stanleychiu@protonmail.com
+    Discord - HKerStanley#4125
+    GitHub - https://github.com/HKerStanley/zk-uni (./asset/week_1)
+
 ## Question 1 - Intro to circom
 
 1. Takes a 4 leaves input and get the Merkle Root
