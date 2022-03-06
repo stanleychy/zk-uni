@@ -85,7 +85,9 @@
 
 ## Question 2 - Minting an NFT and committing the mint data to a Merkle Tree
 
-    ![Alt text](screenshot_q2.png "Q2")
+NFT Contract - <https://github.com/HKerStanley/zk-uni/blob/main/contracts/1_MerkleNFT.sol>
+
+![Alt text](screenshot_q2.png "Q2")
 
 ## Question 3 - Understanding and generating ideas about ZK technologies
 
