@@ -1,5 +1,5 @@
 # Compile the circom template file
-circom get_merkle_root.circom  --r1cs --wasm --sym --c
+circom get_merkle_root.circom --r1cs --wasm --sym --c
 
 # Use NodeJS to generate witness
 cd get_merkle_root_js
