@@ -11,17 +11,17 @@ cd ..
 
 # Powers of Tau
 # Use snarkjs to start a "powers of tau" ceremony
-snarkjs powersoftau new bn128 12 pot12_0000.ptau -v
+snarkjs powersoftau new bn128 16 pot16_0000.ptau -v
 
 # Contribute to the ceremony
-snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name="First contribution" -v
+snarkjs powersoftau contribute pot16_0000.ptau pot16_0001.ptau --name="First contribution" -v
 
 # Phase 2
 # Start the generation of phase 2
-snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau -v
+snarkjs powersoftau prepare phase2 pot16_0001.ptau pot16_final.ptau -v
 
 # Start a new .zkey file that will contain the proving and verification keys together with all phase 2 contributions
-snarkjs groth16 setup get_merkle_root.r1cs pot12_final.ptau get_merkle_root_0000.zkey
+snarkjs groth16 setup get_merkle_root.r1cs pot16_final.ptau get_merkle_root_0000.zkey
 
 # Contribute to the phase 2 of the ceremony
 snarkjs zkey contribute get_merkle_root_0000.zkey get_merkle_root_0001.zkey --name="Contributor One" -v
