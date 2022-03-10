@@ -23,7 +23,11 @@
 2.  1.  Screenshot
         ![Alt text](screenshot_q2_2_1.png "Q2 Part 2 Task 1")
 
-    2.  First we look at the public inputs: `externalNullifier` is a value being used when broadcasting a signal, to identify if it is the first time a user broadcasting
+    2.  Commented version of `semaphore.circom` : <https://github.com/HKerStanley/zk-uni/blob/main/asset/week_2/semaphore_with_comment.circom>
+
+    3.
+
+3.
 
 ## Question 3
 
