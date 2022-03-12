@@ -32,6 +32,10 @@
     2. I think Elefria can support auto-download of the user secret which encrypted with user's private key, so that the secret key saving process can be automated and prevent human error.
 
 ## Question 3
+1. 
+2. 
+3. 1. Theres an error when I run with Windows WSL2 so I switch to use my Mac and all test passed.
+![Alt text](screenshot_q3_3_1.png "Q3 Part 3 Task 1")
 
 ## Question 4
 
