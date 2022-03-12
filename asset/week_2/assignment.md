@@ -20,14 +20,16 @@
 
     Example of applications can be messaging application, digital document signing and POAP (Proof-Of-Attendance Protocol)
 
-2.  1.  Screenshot
+2.  1.  Screenshot of all test passed on main branch, commit `3bce72f` is failing `addWhistleblower` and `removeWhistleblower`
         ![Alt text](screenshot_q2_2_1.png "Q2 Part 2 Task 1")
 
     2.  Commented version of `semaphore.circom` : <https://github.com/HKerStanley/zk-uni/blob/main/asset/week_2/semaphore_with_comment.circom>
 
     3.
 
-3.
+3.  1. User can lost or expose their secret, just like how they lost or expose their wallet seedphrase or private key. Its is also possible for users to run out of gas, as register and login are all transactions on the blockchain.
+
+    2. I think Elefria can support auto-download of the user secret which encrypted with user's private key, so that the secret key saving process can be automated and prevent human error.
 
 ## Question 3
 
