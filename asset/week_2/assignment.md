@@ -33,13 +33,19 @@
 
 ## Question 3
 
-1.
-2.
+1. For `tornado-trees` it is simply an Merkle Tree implementation, which I believe is how Tornado Cash used to verify if a deposit exist and if a withdrawal is valid. But for `tornado-nova` it also act as a mixer, which is an improvement of the prior version because a mixer support users to deposit and withdraw custom amount of fund.
+
+2. 1. The previous Merkle root and the updated Merkle root are provided as public inputs, which the smart contract can alos validate with the value stored in its storage. Other supporting values will be provided as calldata, including the path to the
+
+   2. I think it is because SHA256 hash support more and larger size of inputs, which on the orther hand Poseidon hash only support defined input fields, that makes SHA256 hash more suitable in the use case as it allows Tornado Cash takes more supporting values in to account during the update and verification process.
+
 3. 1. Theres an error when I run with Windows WSL2 so I switch to use my Mac and all test passed.
       ![Alt text](screenshot_q3_3_1.png "Q3 Part 3 Task 1")
 
+4. L1Unwrapper is act as a bridge between L1 and the Gnosis Chain. When users withdraw assets from Tornado Cash Nova, the token will be unwrapped on L1 so that users can use them as they wish. The bridge will be able to collect transaction fee from the withdrawal(unwrap) process from user.
+
 ## Question 4
 
-1. Tornado Cash's name is constantly brought up with criminal events like assets stealing or fraud, what is the team's stance for these kind of usage of their platform and how they put the balance between privacy and regulations?
+1. Tornado Cash's name is constantly brought up with criminal events like assets stealing or fraud, what is the team's stance for these kind of usage and how they put the balance between privacy and regulations?
 
 2. It is hard to develop and maintain such one single circuit for all dapps, but there should be a set of circuits for a dapp domain. I am thinking this set of circuit like the programming language, that developers can leverage this set of well defined circuits to develop dapps. I believe in the future we will have many different set of circuits for zk-dapp development, just like today we have so many different programming language for different purpose.
