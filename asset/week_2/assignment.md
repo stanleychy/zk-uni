@@ -6,11 +6,11 @@
 
 ## Question 1
 
-1. Frist transactions are broadcasted and processed and validated by miners, then packed into a new block. This new block will be verified by blockchain validators after they come to an agreement of the order of events and confirm that transactions in the block are valid, block will be added to the blockchain which leads the blockchain to a new state.
+1. As blockchain is essentially a state machine, any state change is a process of taking inputs, execute the state transition function which can be a simple transaction or smart contract function, that miners or validators will verify the validity. Once majority of them reach an agreement, the chain state will be updated and permanently stored. Anyone should be able to reach the current state of the blockchain by re-executing all transactions. Such re-execution nature meaning that all input data must be public and backup for validation, which bring up privacy concern, hard to scale and limitation on efficiency in both storage and computation. ZK based verification solve above mentioned problem as the input data can be remain private. Also greatly improve the performance as the zero knowledge proof is the only thing needed to be verify
 
-2. 1.
-   2.
-   3.
+2. A ZK VM is a circuit that takes part of the input of a program, so that a prover can be able to show that with given a set of inputs, they have correctly executed the program code on said inputs.
+
+   ![Alt text](screenshot_q1_2.png "Q1 Part 2")
 
 ## Question 2
 
@@ -41,11 +41,11 @@
 
    2. Snark friendly hash function like Poseidon is expensive on-chain. To optimize the gas fee of a transaction, the process needs to be more dependent to the snark side. Computing SHA256 hash for snark is really heavy that requires a special machine to build the circuit, but once the circuit is built generating a proof with SHA256 hash is managable. This is also a good thing as the difficulty to setup give some level of protection to the protocol.
 
-3.  1. Theres an error when I run with Windows WSL2 so I switch to use my Mac and all test passed.
+3. 1. Theres an error when I run with Windows WSL2 so I switch to use my Mac and all test passed.
       ![Alt text](screenshot_q3_3_1.png "Q3 Part 3 Task 1")
-    
-    2. I worte the test script in `custom.text.js` and copied it to this assignment folder: <https://github.com/HKerStanley/zk-uni/blob/main/asset/week_2/custom.test.js>
-        ![Alt text](screenshot_q3_3_2.png "Q3 Part 3 Task 2")
+
+   2. I worte the test script in `custom.text.js` and copied it to this assignment folder: <https://github.com/HKerStanley/zk-uni/blob/main/asset/week_2/custom.test.js>
+      ![Alt text](screenshot_q3_3_2.png "Q3 Part 3 Task 2")
 
 4. L1Unwrapper is act as a bridge between L1 and the Gnosis Chain. When users withdraw assets from Tornado Cash Nova, the token will be unwrapped on L1 so that users can use them as they wish. The bridge will be able to collect transaction fee from the withdrawal(unwrap) process from user.
 
