@@ -37,12 +37,15 @@
 
 1. For `tornado-trees` it is simply an Merkle Tree implementation, which I believe is how Tornado Cash used to verify if a deposit exist and if a withdrawal is valid. But for `tornado-nova` it also act as a mixer, which is an improvement of the prior version because a mixer support users to deposit and withdraw custom amount of fund.
 
-2. 1. The previous Merkle root and the updated Merkle root are provided as public inputs, which the smart contract can alos validate with the value stored in its storage. Other supporting values will be provided as calldata, including the path to the
+2. 1. `TreeUpdateArgsHasher.circom` is a circuit to create a SHA256 hash for the smart contract process and validation, which should be the `argsHash` in `TornadoTrees.sol` function `updateWithdrawalTree`. For a withdrawal tree update we need to provide the previous Merkle root, the new Merkle root, the path to the inserted subtree and data of the withdrawal event(block number, address of withdrawal, and the transaction has). These data are passed to the circuit to generate a snark proof, and in the smart contract it will in fact perform the same process, then verify if the samrt contract inputs lead to the same result as the snark proof. If its valid, the smart contract will store the updated Merkle root and complete an update. In the process the smart contract also emit the update event data so it is easier to reconstruct or verify the state of the Merkle Tree.
 
-   2. I think it is because SHA256 hash support more and larger size of inputs, which on the orther hand Poseidon hash only support defined input fields, that makes SHA256 hash more suitable in the use case as it allows Tornado Cash takes more supporting values in to account during the update and verification process.
+   2. Snark friendly hash function like Poseidon is expensive on-chain. To optimize the gas fee of a transaction, the process needs to be more dependent to the snark side. Computing SHA256 hash for snark is really heavy that requires a special machine to build the circuit, but once the circuit is built generating a proof with SHA256 hash is managable. This is also a good thing as the difficulty to setup give some level of protection to the protocol.
 
-3. 1. Theres an error when I run with Windows WSL2 so I switch to use my Mac and all test passed.
+3.  1. Theres an error when I run with Windows WSL2 so I switch to use my Mac and all test passed.
       ![Alt text](screenshot_q3_3_1.png "Q3 Part 3 Task 1")
+    
+    2. I worte the test script in `custom.text.js` and copied it to this assignment folder: <https://github.com/HKerStanley/zk-uni/blob/main/asset/week_2/custom.test.js>
+        ![Alt text](screenshot_q3_3_2.png "Q3 Part 3 Task 2")
 
 4. L1Unwrapper is act as a bridge between L1 and the Gnosis Chain. When users withdraw assets from Tornado Cash Nova, the token will be unwrapped on L1 so that users can use them as they wish. The bridge will be able to collect transaction fee from the withdrawal(unwrap) process from user.
 
