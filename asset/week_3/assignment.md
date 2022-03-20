@@ -27,9 +27,9 @@
 
 ## Question 4: InterRep
 
-1. InterRep use Semaphore to verify if a user exists in certain group without revealing the identity. Users can generate their Semaphore identity that InterRep stored in their Merkle Tree. Users will be able to verify their existance in certain groups and gain access to external dapp while external dapp can authenticate users via InterRep API.
+1. InterRep use Semaphore to verify if a user exists in certain group. Users can generate their Semaphore identity that InterRep stored in their Merkle Tree. Users will be able to verify their existance in certain groups and gain access to external dapp since external dapp can authenticate users via InterRep API without knowing users' actualy identity.
 
-2.
+2. When joining a group the identity commitment will be stored in a Merkle Tree node, immediately affected the Merkle Root value. When leaving a group, that node will reset its hash to 0, leading the merkle root to change. In the `treeRootBatches` collection, the document that holding `roots` array will append the new Merkle Root hash value to commit this change of Merkle Tree state.
 
 3. Screenshot: ![Screenshot Q4-3](screenshot_q4_3.png "Q4 Part 3")
 
