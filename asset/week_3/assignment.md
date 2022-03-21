@@ -22,12 +22,13 @@
 
 2. We can take on-chain data like `block.difficulty` and `msg.sender` and apply hash function to get a hash value h, the h % 6 will gives a number in {0..5} that simulate a dice roll result.
 
-   1. The issue is as these data are deterministic on blockchain, attackers are able to access or predict the random result in certain degree.
-   2.
-
+   1. The issue is as these data are from the blockchainwhich is deterministic, attackers are able to somehow predict or even manipulate the random result.
+   2. We can distribute the computation of the randomness to multiple parties with a commit-reveal protocol. So every participant commit their encrypted random result to a smart contract, and when the commit phrase finished participants can reveal their result and the smart contract can derive a final result from the given values.
+   3. The multi party system is fairer as involving more parties in the calculation process can distribute the risk of randomness manipulation. It decentralized the process that participants will have fairer weight on computing the randomness, which also lower the risk of single point failure.
+   4. Since the random result relies on the revealed result of participants and the reveal process is controlled by participants, there are collusion potential that participants can manipulate the result by not revealing their commitment. We can solve this reveal withholding manipulation by using the VDF. Participants will not be able to predict how their reveal is going to affect the final result as the process will be delayed. The delay causes participants not able to have all the necessary information as there can be new changes come in during the delay or changes they are aware of but not actually knowing what it is.
 ## Question 4: InterRep
 
-1. InterRep use Semaphore to verify if a user exists in certain group. Users can generate their Semaphore identity that InterRep stored in their Merkle Tree. Users will be able to verify their existance in certain groups and gain access to external dapp since external dapp can authenticate users via InterRep API without knowing users' actualy identity.
+1. Interep semaphore as a system to store and verify users' reputation without having a actual linkage between the reputation identity and user identity. Interep still needs a centralized server because they need to get access to users account in external groups like Twitter or Telegram. In order to calculate the reputation and put the user in the correct group, users need to expose their secret to the verifier so that these external data can be verified. Interep as a trusted coordinator with a centralized server can achieve the reputation generation process by againing access to users' secret and make sure it is genuine.
 
 2. When joining a group the identity commitment will be stored in a Merkle Tree node, immediately affected the Merkle Root value. When leaving a group, that node will reset its hash to 0, leading the merkle root to change. In the `treeRootBatches` collection, the document that holding `roots` array will append the new Merkle Root hash value to commit this change of Merkle Tree state.
 
@@ -35,4 +36,4 @@
 
 ## Question 5: Thinking in ZK
 
-1.
+1. What if the external group is compromised or exploited? How should a external group verify the quality of user reputation? For example one can buy a lot of Twitter interactions, followers and like in very low cost, which can somehow manipulate the group of a user falls in. Is it worth or safe to account off-chain activities to user reputation? 
