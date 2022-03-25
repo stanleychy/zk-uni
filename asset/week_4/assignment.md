@@ -20,8 +20,17 @@ I am going for Stream B to build ZK Dapps
 
    4. Rollups: It works similar to Plasma but this time we also post the transaction data on-chain. The amount of data is keep as minimum amount required to locally validate the rollup transactions. Moving transactions to the rollup later and compress transaction data help to scale the L1 blockchain with same level of security. But since we are still posting data on-chain, the scalibility is limited. And since rollup is working on a different layer, it makes liquidity fractured and lose the composability when building on L1 blockchain.
 
+2. ZK-Rollup follows the "Don’t trust, verify" mentality that it execute and validate transactions off-chain. It make sure the batch of transactions is correct and generate proof that can be used for verification. Both the proof and transaction data will be posted on chain so that anyone can verify the data if needed. The reason I am more lean on ZK rollup is about the latency. User experience is better as the withdrawal of assets is faster in ZK rollup, while in Optimistic rollup user need to wait for a "challenge period" if there are fraud proof. Also, since transactions are posted after verification, ZK rollup is more secure than other rollup.
+   ![ZK Rollup](zk-rollup.png)
+
+3. Stateless client is a concept that allow nodes to validate a block without storing a full Ethereum state. Instead, the state which is required for validating a block is delivered as a witness. From here we can apply zero knowledge concept that such witness is used to verify the next state without the need of revealing/storing the previous state.
+
 ## Question 2: Roll the TX up
+
+3. Major advantages of zkPorter is the exponential growing TPS and significant cost reduction. Also, in their Proof of Stake protocol, operators or guardians cannot steal fund but only freeze them, which is more secure. Generally speaking I think zkPorter is good for majority of users as speed and cost are their major concern. It is also providing an extra option to users when a transaction is not that sensitive to require best security. However, since zkPorter stores data off-chain and depends on validators' stake, it can be less secure compare to storing on-chain.
 
 ## Question 3: Recursive SNARK’s
 
 ## Question 4: Final Project Ideas
+
+## Question 5: Thinking in ZK
