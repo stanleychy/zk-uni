@@ -31,6 +31,12 @@ I am going for Stream B to build ZK Dapps
 
 ## Question 3: Recursive SNARK’s
 
+1. Recursive SNARK is a scaling solution of a simple SNARK by recursion. As SNARK can verify and be verified by computations, such computation can be chained and and lead to a fixed size of output. This solves the problem of a linear growth of time complexity for computing a proof for a large amount of input. One possible security drawback I can think of is that since all computation is base on the previous SNARK proof, it can to be attacked by withholding the previous proof or somehow fake a previous proof. And since original data will not be available such malicious attack might be more difficult to be noticed.
+
+2. Kimchi is a proof system in the Mina protocol and is a improved version of PLONK. They use a bulletproof-style polynomial commitment in Kimchi so there is no need for a trusted setup. Also, they added more registers to PLONK so it can takes more input and perform more complex computation.
+
 ## Question 4: Final Project Ideas
 
 ## Question 5: Thinking in ZK
+
+1. Question to Mina protocol, how is the consensus layer looks like in Mina blockchain? We are expecting a large amount of block producers and snark producers, how is the producer being choosed? How do the whole blockchain comes to an consensus if the number of participants is so large and will it takes a linear or even exponential growth of time to come to a consensus?
