@@ -36,6 +36,11 @@ I am going for Stream B to build ZK Dapps
 2. Kimchi is a proof system in the Mina protocol and is a improved version of PLONK. They use a bulletproof-style polynomial commitment in Kimchi so there is no need for a trusted setup. Also, they added more registers to PLONK so it can takes more input and perform more complex computation.
 
 ## Question 4: Final Project Ideas
+1.  
+   - Idea 1: Building the [Stratego](https://en.wikipedia.org/wiki/Stratego) in zero knowledge gameplay. In the original gameplay, when a player attack opponent's piece by moving to occupied space, both players have to reveal the piece. With zero knowledge movement we will not need to reveal both pieces to garantee a attack result. At the same time we dont need a third person as the judge. I believe games are very good at promoting new technology to general public while improving the existing gameplay.
+   - Idea 2: A zero-knowledge prover of citizenship or identity document. We are seeing a trend of traditional services like banking going digital/online. Its normal for these services requesting users to upload their passport or id card or sensitive information for Know Your Customer(KYC). The security concern is clear when users are being asked to pass such data online and I think privacy can be improved with zero knowledge proof in such process.
+
+2. Zero knowledge is relatively new to public and there are very few fun product in the market. Building a fun board game in my point of view is a very efficient way to onboard new users. However, this simple game with extra techical complexity may not be very attractive to players. Compare to my second idea that already has a strong use case the game is not very valuable in solving real world problem. However, my second idea is very ambitious with quite a large technical scope which I am not confident to be able to finsh on time. I am more prefer the game idea as I have game development background so it should be within my capability.
 
 ## Question 5: Thinking in ZK
 
