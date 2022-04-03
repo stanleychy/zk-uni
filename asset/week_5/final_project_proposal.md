@@ -8,6 +8,14 @@ Stratego is a strategy board game for two players on a board of 10×10 squares. 
 
 ## Use Cases
 
+1. Game is great at onboarding new users and testing new technology. Using zero knowledge to improve a popular traditional board game can introduce zero knowledge and blockchain to an existing group of players from the original game.
+
+2. This game also introduce a technical approach of PvP game, while I hope this can be inspiring or as an example for other PvP game in zero knowledge field.
+
 ## Competitive Analysis
 
+There are not many zero knowledge powered games on market. The most famous one is Dark Forest which I dont see much similarity to mine. However, there are existing variance to the original Stratego game like [Luzhanqi](https://en.wikipedia.org/wiki/Luzhanqi) which requires a thrid person as the judge so to prevent the reveal of both pieces. But such approach introduce certain level of centralization and expose the chance of collusion. I see the niche of zkStratego from the existing market.
+
 ## Roadmap
+
+The first release of the game will be with exactly the same gameplay and feature as the original game, except the encounter and reveal part. Later on I would like to introduce more features and migrate existing gameplay on chain or improve privacy with zero knowledge proof.
