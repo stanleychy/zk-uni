@@ -16,11 +16,13 @@
 
 ## Question 2: Ultra light clients
 
-1.
+1. Full nodes will first commit to the entire accumulated blockchain history at each block. Such commitment can be captured in an append-only data structure known as a Merkle Mountain Range(MMR) and generate a zero knowledge proof of the commitment. The light client only need to sample a random number of blocks base on the current block header and the latest block header to verify the proof to sync up the blockchain state. new transactions can then be appended to the MMR, new root and zero knowledge proof will be generated so can be shared among light clients and verify each other to reach consensus for state transition.
+
+2. For a bridge protocol to verify the state of the source chain and sync the state to destinated chain we want to minimize the amount of information needed to spped up the verification process. Such light client design as mentioned above allow the verifier on the destinated chain to only take the proof and latest commitment from the source chain, and require the relayer to only sample a small amount of blocks from the source chain for verification. This also decrease the level of dependency on the relayer for continuously forwarding all data from the source chain.
 
 ## Question 3: Horizon Bridge
 
-1.
+1. Commented code here: <https://github.com/HKerStanley/zk-uni/tree/main/asset/week_6/horizon>
 
 ## Question 4: Rainbow Bridge
 
