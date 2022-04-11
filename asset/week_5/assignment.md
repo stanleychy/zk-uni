@@ -32,4 +32,4 @@
 
 ## Question 5: Final Project
 
-Link to my proposal: <https://github.com/HKerStanley/zk-uni/asset/week_5/final_project_proposal.pdf>
+Link to my proposal: <https://github.com/HKerStanley/zk-uni/blob/main/asset/week_5/final_project_proposal.pdf>
