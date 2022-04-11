@@ -37,12 +37,12 @@
 
     b) HarmonyLightClient takes the FlyClient approach while EthereumLightClient takes the SPV proofs approach. Since Ethereum is using PoW consensus architecture while Harmony is using PoS, Ethereum has a lower block production pace and relatively smaller size of block header. Harmony block header included the block history commitment while Ethereum do not, which requires a fork of Ethereum if we want to include such commitment in the block header. Such characteristic makes Ethereum more convenient in generating SPV proofs from getting all block headers and the genesis block hash.
 
-2. 
-
 ## Question 4: Rainbow Bridge
 
-2. 
+2. The Rainbow Bridge consists of light clients, provers, connectors and a watchdog service. Light clients also included relay service that constantly forward block headers from one chain to another. Once the light client receives a transfer and lock event on the source chain, the client and prover will work on verifying the transaction on destinated chain. Such prover will enable connectors if the state is valid, to lock and mint assets on both chains. The watchdog service is working on Ethereum for challenging block headers from NEAR transactions due to the lactency of NEAR to Ethereum interactions. I would prefer Horizon approach as the architecture seems more modular. It would be easier to extend and scale in the future.
+
+3. The Merkle Mountain Range is an append only data structure similar to Merkle Tree. New parent will be calculated as soon as 2 children exists. It can be seen as multiple Merkle Tree but still able to be represented in a flat list. Similar to merkle tree, a merkle proof to show inclusion of a node can be calculated by providing the node and its sibling. And because of the list nature of the MMR, we can find these siblings easily given a node's position and the size of the list.
 
 ## Question 5: Thinking in ZK
 
-1. 
+1. Both Horizon and Rainbow bridge are highly domain specific which seems they choose to focus on trustlessness and generalizeability, how feasible or is there any plan to extend the protocol to support layer 2 protocols of Ethereum ?
