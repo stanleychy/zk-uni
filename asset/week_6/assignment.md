@@ -20,16 +20,29 @@
 
 2. For a bridge protocol to verify the state of the source chain and sync the state to destinated chain we want to minimize the amount of information needed to spped up the verification process. Such light client design as mentioned above allow the verifier on the destinated chain to only take the proof and latest commitment from the source chain, and require the relayer to only sample a small amount of blocks from the source chain for verification. This also decrease the level of dependency on the relayer for continuously forwarding all data from the source chain.
 
+3. The biggest challenge would be the differences of the consensus system. As the block header is calculated from the underlying consensus system, i.e. validators picking, proting Plumo from Celo to Harmony requires re-implementation of the proof generation circuit.
+
 ## Question 3: Horizon Bridge
 
-1. Commented code here: <https://github.com/HKerStanley/zk-uni/tree/main/asset/week_6/horizon>
+1.  a) Asset bridging flow:
+    1. User transfer assets to the bridge contract on source chain which gives a transaction hash, the hash will be verified by a prover contract and generate a proof of lock of the asset. 
+
+    2. User then provide the proof of lock to the bridge contract on destinated chain, which will call the `validateAndExecuteProof` function in the token locker smart contract, in Horizon Bridge they will be `TokenLockerOnHarmony.sol` and `TokenLockerOnEthereum.sol`. If the proof is valid, corresponding action like minting/unlocking tokens will be executed.
+
+    3. Inside the `validateAndExecuteProof` function theres a validation function call to the light clients. In `HarmonyLightClient.sol` the function is `isValidCheckPoint`. Since it takes the FlyClient approach the block header already stores the block history commitment and stored the valid checkpoint on chain, the function can simply return the boolean value of `epochMmrRoots[epoch][mmrRoot]` as only valid checkpoint will return true. In `EthereumLightClient.sol` the code is a bit more complex as it needs to generate and keep track so to be able to verify the SPV proof.
+
+    4. For the relayers, on Ethereum side relayers call `submitCheckpoint` to submit checkpoint, which we can find the MMR root in the checkpoint structure and the root is able to capture the accumulated block history on Harmony side. For the Ethereum relayer there are more work to do. Calling the `addBlockHeader` function requires verification on all data in the relayed block header and make sure it presents the tip of the heaviest chain.
+
+    5. Lastly we look into the test script `bridge.hmy.js`, I commented the script directly here: <https://github.com/HKerStanley/zk-uni/tree/main/asset/week_6/bridge.hmy.js>
+
+    b) HarmonyLightClient takes the FlyClient approach while EthereumLightClient takes the SPV proofs approach. Since Ethereum is using PoW consensus architecture while Harmony is using PoS, Ethereum has a lower block production pace and relatively smaller size of block header. Harmony block header included the block history commitment while Ethereum do not, which requires a fork of Ethereum if we want to include such commitment in the block header. Such characteristic makes Ethereum more convenient in generating SPV proofs from getting all block headers and the genesis block hash.
+
+2. 
 
 ## Question 4: Rainbow Bridge
 
-1.
-
-2. Screenshot: ![Screenshot Q4-3](screenshot_q4_3.png "Q4 Part 3")
+2. 
 
 ## Question 5: Thinking in ZK
 
-1.
+1. 
